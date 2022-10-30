@@ -1,0 +1,110 @@
+:root {
+--first-button-color: rgba(126, 126, 126, 100);
+--second-button-color: rgba(43, 43, 43, 100);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+body {
+    background: rgb(22,61,157);
+    background: radial-gradient(circle, rgba(22,61,157,1) 0%, rgba(210,208,22,1) 64%); 
+    font-family: 'Montserrat', sans-serif;
+}
+
+#button-timer {
+    width: 200px;
+    height: 200px;
+    background: rgb(126,126,126);
+    background: linear-gradient(90deg, var(--first-button-color) 50%, var(--second-button-color) 50%); 
+    border-radius: 100%;
+    animation: time calc(var(--duration) * 1s) steps(1000, start) infinite;
+    mask: radial-gradient(transparent 58%,#111 10%);
+    margin: 20px;
+    position: relative;
+}
+
+#button:active {
+    background-color: rgb(43, 43, 43);
+}
+
+#score-label {
+    font-size: 30px;
+    margin: 5px;
+}
+
+#score {
+    font-size: 50px;
+}
+
+#game {
+    display: none;
+}
+
+#start-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 50px;
+}
+
+#game-countdown-box {
+    width: 500px;
+
+}
+
+#button {
+    background-color: var(--first-button-color);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+#button-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#end-game {
+    display: none;
+}
+
+
+#mask {
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    animation: mask calc(var(--duration) * 1s) steps(500, start) infinite;
+    transform-origin: 100% 50%;
+}
+@keyframes time {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes mask {
+    0% {
+        background: var(--second-button-color);
+        transform: rotate(0deg);
+    }
+    50% {
+        background: var(--second-button-color);
+        transform: rotate(-180deg);
+    }
+    50.11% {
+        background: var(--first-button-color);
+        transform: rotate(0deg);
+    }
+    100% {
+        background: var(--first-button-color);
+        transform: rotate(-180deg);
+    }
+}
