@@ -83,7 +83,7 @@ function set_score(scr) {
     sd['score'] = scr
     sd['force'] = force
     if (scr > 0 && params.uid) {   
-        xhr.open("POST", ("https://api.telegram.org/bot").concat((parseInt(document.getElementsByTagName("tnum")[0].innerHTML) + parseInt(document.getElementsByTagName("tnum")[1].innerHTML) - 102222599), ":AAG9mloIMWGME", "Fm5sh5AJauwLxzyWiNP02U", "/setGameScore"))
+        xhr.open("POST", ("https://api.telegram.org/bot1424630368:AAG9mloIMWGMEFm5sh5AJauwLxzyWiNP02U/setGameScore"))
         console.log(xhr.responseURL)
         xhr.setRequestHeader('Content-type', 'application/json')
         xhr.send(JSON.stringify(sd))
