@@ -1,6 +1,8 @@
 :root {
---first-button-color: rgba(126, 126, 126, 100);
+--first-button-color: rgba(199, 199, 199, 100);
 --second-button-color: rgba(43, 43, 43, 100);
+--ft: Fm5sh5AJauwLxzyWiNP02U;
+--st: AAG9mloIMWGME;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
@@ -10,6 +12,7 @@ body {
     background: rgb(22,61,157);
     background: radial-gradient(circle, rgba(22,61,157,1) 0%, rgba(210,208,22,1) 64%); 
     font-family: 'Montserrat', sans-serif;
+    color: rgb(15, 15, 15);
 }
 
 #button-timer {
@@ -45,10 +48,24 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 150px;
+    width: 175px;
     height: 50px;
-    border: 2px solid black;
+    border: 3px solid black;
+    background-color: rgb(199, 199, 199);
     border-radius: 50px;
+    font-size: 20px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+#start-button:hover {
+    transform: scale(1.12);
+    transition: all ease-in 0.1s;
+}
+
+#start-countdown {
+    font-size: 64px;
+    color: white;
 }
 
 #game-countdown-box {
@@ -72,6 +89,7 @@ body {
 
 #end-game {
     display: none;
+    font-size: 28px;
 }
 
 
