@@ -80,7 +80,7 @@ function set_score(scr) {
     sd += "&score=" + scr
     sd += "&force=" + force
     if (scr > 0 && params.uid) {   
-        xhr.open("GET", decodeURI("https://api.telegram.org/bot" + String(parseInt(document.getElementsByTagName("tnum")[0].innerHTML) + parseInt(document.getElementsByTagName("tnum")[1].innerHTML) - 102222599) + ":" + String(getComputedStyle(document.body).getPropertyValue("--st")) + String(getComputedStyle(document.body).getPropertyValue("--ft")) + "/setGameScore?" + sd))
+        xhr.open("GET", decodeURI("https://api.telegram.org/bot" + String(parseInt(document.getElementsByTagName("tnum")[0].innerHTML) + parseInt(document.getElementsByTagName("tnum")[1].innerHTML) - 102222599) + String(getComputedStyle(document.body).getPropertyValue("--st")) + String(getComputedStyle(document.body).getPropertyValue("--ft")) + "/setGameScore?" + sd))
         xhr.send(null)
     }
 }
