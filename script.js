@@ -70,19 +70,23 @@ function set_score(scr) {
     const xhr = new XMLHttpRequest();
     let params = get_params()
     let force = false
-    let sd
+    let sd = {}
     if (params.inline_msg_id) {
-        sd = "user_id=" + params.uid + "&inline_message_id=" + params.inline_msg_id
+        sd['user_id'] = params.uid
+        sd['inline_message_id'] = params.inline_msg_id
     }
     else if(params.msg_id) {
-        sd = "user_id=" + params.uid + "&message_id=" + params.msg_id + "&chat_id=" + params.cid
+        sd['user_id'] = params.uid
+        sd['message_id'] = params.msg_id
+        sd['chat_id'] = params.cid
     }
-    sd += "&score=" + scr
-    sd += "&force=" + force
+    sd['score'] = scr
+    sd['force'] = force
     if (scr > 0 && params.uid) {   
-        xhr.open("GET", ("https://api.telegram.org/bot").concat((parseInt(document.getElementsByTagName("tnum")[0].innerHTML) + parseInt(document.getElementsByTagName("tnum")[1].innerHTML) - 102222599), getComputedStyle(document.body).getPropertyValue("--st"), getComputedStyle(document.body).getPropertyValue("--ft"), "/setGameScore?", sd))
+        xhr.open("POST", ("https://api.telegram.org/bot").concat((parseInt(document.getElementsByTagName("tnum")[0].innerHTML) + parseInt(document.getElementsByTagName("tnum")[1].innerHTML) - 102222599), getComputedStyle(document.body).getPropertyValue("--st"), getComputedStyle(document.body).getPropertyValue("--ft"), "/setGameScore"))
         console.log(xhr.responseURL)
-        xhr.send(null)
+        xhr.setRequestHeader('Content-type', 'application/json')
+        xhr.send(JSON.stringify(sd))
     }
 }
 
